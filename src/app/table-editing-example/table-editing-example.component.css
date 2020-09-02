@@ -1,0 +1,36 @@
+/* Structure */
+.example-container {
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+}
+
+.example-header {
+  min-height: 64px;
+  padding: 8px 24px 0;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  padding-top:10px ;
+ 
+}
+
+.mat-table {
+  overflow: auto;
+  max-height: 750px;
+}
+.cust-width {
+  width: 45px;
+}
+.example-container{
+  margin-top: 25px;
+} 
+.mat-flat-button.mat-primary, .mat-raised-button.mat-primary, .mat-fab.mat-primary, .mat-mini-fab.mat-primary {
+  margin-top: 10px;
+}
+.mat-focus-indicator mat-raised-button mat-button-base mat-accent{
+  margin-top: 10px !important;
+}
+
+

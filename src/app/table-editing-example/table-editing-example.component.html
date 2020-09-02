@@ -1,0 +1,69 @@
+<div class="container">
+<button mat-raised-button mt-3 color="primary" (click)="addQuantity()">Add row</button>
+<div class="example-container mat-elevation-z8">
+
+	<form [formGroup]="productForm" class="tableform">
+		<mat-table [dataSource] = "dataSource" formArrayName="quantities">
+            
+			<ng-container matColumnDef="name" class="inputs">
+				<mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+				<!-- <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell> -->
+				<mat-cell *matCellDef="let element ;let index = index">
+					<mat-form-field floatLabel="never" appearance="outline">
+						<mat-label>Name</mat-label>
+						<input matInput placeholder="name"  [formControl]="getControl(index, 'name')"  >
+					
+					</mat-form-field>
+				</mat-cell>
+			</ng-container>
+
+			<ng-container matColumnDef="email">
+				<mat-header-cell *matHeaderCellDef> Email </mat-header-cell>
+				<mat-cell *matCellDef="let element ;let index = index">
+					
+					<mat-form-field floatLabel="never" appearance="outline">
+						<mat-label>Emali</mat-label>
+						<input matInput placeholder="email" [formControl]="getControl(index, 'email')" >
+					</mat-form-field>
+				</mat-cell>
+			</ng-container>
+
+			<ng-container matColumnDef="phoneno">
+				<mat-header-cell *matHeaderCellDef> Phone Number </mat-header-cell>
+				<mat-cell *matCellDef="let element ;let index = index">
+					<mat-form-field floatLabel="never" appearance="outline">
+						<mat-label>Phoneno</mat-label>
+						<input matInput placeholder="phoneno"  [formControl]="getControl(index, 'phoneno')" >
+					</mat-form-field>
+				</mat-cell>
+			</ng-container >
+			<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+
+			<ng-container>
+			
+			<mat-row *matRowDef="let quantity; columns: displayedColumns;" ></mat-row>
+		    </ng-container>
+			<ng-container matColumnDef="actions">
+				<mat-header-cell *matHeaderCellDef >
+				  Delete 
+				</mat-header-cell>
+			  <!--row actions -->
+				<mat-cell *matCellDef="let row; let i=index;">
+				  <button   mat-raised-button color="warn" (click)="deleteItem(row)">
+					delete
+				  </button>
+				    
+				</mat-cell>         
+			  </ng-container> 
+			
+		
+		</mat-table>
+		<ng-container *ngFor="let quantity of quantities().value; let i=index" >
+			{{quantity | json}}
+		
+		</ng-container>
+
+	</form>
+</div>
+<button mat-raised-button color="accent">Submit All</button>
+</div>
