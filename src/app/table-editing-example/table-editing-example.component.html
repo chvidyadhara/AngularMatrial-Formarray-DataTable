@@ -59,11 +59,12 @@
 		
 		</mat-table>
 		<ng-container *ngFor="let quantity of quantities().value; let i=index" >
-			{{quantity | json}}
+		
 		
 		</ng-container>
 
 	</form>
 </div>
 <button mat-raised-button color="accent">Submit All</button>
+  	{{quantity | json}}
 </div>
